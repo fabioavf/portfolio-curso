@@ -242,6 +242,7 @@ header nav {
 .conhecimentos-wrapper {
     display: flex;
     flex-direction: column;
+    flex: 1;
     gap: 16px;
 }
 
@@ -321,7 +322,7 @@ footer img {
 /*                                 Responsivo                                 */
 /* -------------------------------------------------------------------------- */
 
-@media only screen and (min-width: 968px) {
+@media only screen and (min-width: 756px) {
     .container {
         padding: 64px 144px;
     }
@@ -375,29 +376,9 @@ footer img {
 
     /* -------------------------------- Sobre ------------------------------- */
 
-    #sobre {
-        flex-direction: column;
-        flex-wrap: wrap;
-    }
-
     #sobre img {
-        order: 0;
-        flex: 100%;
-    }
-
-    #sobre .sobre-buttons {
-        order: 1;
-    }
-
-    #sobre h1 {
-        order: 3;
-    }
-
-    #sobre .sobre-text {
-        order: 4;
-    }
-
-    .break {
+        max-width: 528px;
+        align-self: center;
     }
 
     /* ------------------------------ Projetos ------------------------------ */
@@ -441,4 +422,52 @@ footer img {
     }
 
     /* ------------------------------- Footer ------------------------------- */
+}
+
+@media only screen and (min-width: 1536px) {
+    .container {
+        padding: 64px 400px;
+    }
+
+    header.container {
+        padding: 24px 400px;
+    }
+    /* -------------------------------- Sobre ------------------------------- */
+
+    #sobre {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 5fr 1fr;
+        grid-template-areas:
+            'img title'
+            'img text'
+            'btn text';
+    }
+
+    #sobre img {
+        grid-area: img;
+        max-width: unset;
+    }
+
+    #sobre h1 {
+        grid-area: title;
+    }
+    .sobre-text {
+        grid-area: text;
+    }
+
+    .sobre-buttons {
+        grid-area: btn;
+    }
+
+    /* ------------------------------ Projetos ------------------------------ */
+
+    #projetos {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .card-wrapper {
+        flex-wrap: nowrap;
+    }
 }
